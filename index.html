@@ -63,6 +63,23 @@
             color: var(--text-dark);
             overflow-x: hidden;
         }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 10px;
+            background: var(--bg-white);
+            color: var(--text-dark);
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            z-index: 2000;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .skip-link:focus {
+            top: 10px;
+        }
         
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
@@ -235,6 +252,26 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .hero-highlights {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .hero-highlight {
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: white;
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
         
         .hero-buttons {
@@ -596,7 +633,7 @@
             position: absolute;
             left: 0;
             top: 8px;
-            color: var(--primary);
+            color: var(--primary-color);
             font-weight: bold;
         }
         
@@ -608,7 +645,7 @@
         }
         
         .skill-tag {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 4px 12px;
             border-radius: 15px;
@@ -1198,6 +1235,12 @@
             border-color: #4a5568;
             color: var(--text-dark);
         }
+
+        .form-feedback {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
         
         /* Loading Animation */
         .loading {
@@ -1236,6 +1279,8 @@
 </head>
 
 <body data-theme="light">
+    <a href="#home" class="skip-link">Skip to content</a>
+
     <!-- Loading Screen -->
     <div class="loading" id="loading">
         <div class="spinner"></div>
@@ -1288,6 +1333,11 @@
             <p class="description" data-aos="fade-up" data-aos-delay="800">
                 Crafting digital experiences with the MERN stack. Passionate about creating scalable, beautiful web applications that solve real-world problems.
             </p>
+            <div class="hero-highlights" data-aos="fade-up" data-aos-delay="900" aria-label="Core strengths">
+                <span class="hero-highlight">MERN Focused Solutions</span>
+                <span class="hero-highlight">Responsive UI/UX</span>
+                <span class="hero-highlight">API & Database Integration</span>
+            </div>
             <div class="hero-buttons" data-aos="fade-up" data-aos-delay="1000">
                 <a href="#about" class="btn-hero primary">
                     <i class="fas fa-user"></i>
@@ -1312,46 +1362,37 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
                     <div class="card-modern h-100 d-flex flex-column">
-                        <img class="rounded-3 mb-3 w-100" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80" alt="Car dealership">
-                        <h4 class="mb-2">Buy and Sell Cars</h4>
-                        <p class="flex-grow-1">Indus Motor Group platform for browsing, buying, and listing vehicles.</p>
-                        <a class="btn btn-primary mt-3" href="https://indus-motor-group.vercel.app/" target="_blank" rel="noopener">Live Site</a>
+                        <img class="rounded-3 mb-3 w-100" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" alt="LuxeWear clothing storefront preview">
+                        <h4 class="mb-2">LuxeWear Clothing</h4>
+                        <p class="flex-grow-1">Modern fashion storefront featuring curated collections and conversion-focused product presentation.</p>
+                        <a class="btn btn-primary mt-3" href="https://luxewear-rose.vercel.app/" target="_blank" rel="noopener">Live Site</a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-modern h-100 d-flex flex-column">
-                        <img class="rounded-3 mb-3 w-100" src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=900&q=80" alt="Finance calculator">
-                        <h4 class="mb-2">Irish Net Salary Calculator</h4>
-                        <p class="flex-grow-1">Tool to estimate take-home pay with deductions tailored for Ireland.</p>
-                        <a class="btn btn-primary mt-3" href="https://irish-net-salary-calculator.vercel.app/" target="_blank" rel="noopener">Live Site</a>
+                        <img class="rounded-3 mb-3 w-100" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Monal restaurant website preview">
+                        <h4 class="mb-2">Monal Restaurant</h4>
+                        <p class="flex-grow-1">Restaurant experience site with menu showcase, atmosphere highlights, and clear booking call-to-action.</p>
+                        <a class="btn btn-primary mt-3" href="https://resturant-five-kappa.vercel.app/" target="_blank" rel="noopener">Live Site</a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
                     <div class="card-modern h-100 d-flex flex-column">
-                        <img class="rounded-3 mb-3 w-100" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" alt="Fashion clothing">
-                        <h4 class="mb-2">LuxeWear Clothing</h4>
-                        <p class="flex-grow-1">Modern brand site showcasing premium apparel and curated looks.</p>
-                        <a class="btn btn-primary mt-3" href="https://luxewear-rose.vercel.app/" target="_blank" rel="noopener">Live Site</a>
+                        <img class="rounded-3 mb-3 w-100" src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=900&q=80" alt="LaundryCity service dashboard preview">
+                        <h4 class="mb-2">LaundryCity</h4>
+                        <p class="flex-grow-1">Service workflow platform with order scheduling, status tracking, and streamlined customer operations.</p>
+                        <a class="btn btn-primary mt-3" href="https://laundry-management-system-react-js.vercel.app/" target="_blank" rel="noopener">Live Site</a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="card-modern h-100 d-flex flex-column">
-                        <img class="rounded-3 mb-3 w-100" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Restaurant interior">
-                        <h4 class="mb-2">Monal Restaurant</h4>
-                        <p class="flex-grow-1">Elegant dining site with menus, ambiance highlights, and booking CTA.</p>
-                        <a class="btn btn-primary mt-3" href="https://resturant-five-kappa.vercel.app/" target="_blank" rel="noopener">Live Site</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
-                    <div class="card-modern h-100 d-flex flex-column">
-                        <img class="rounded-3 mb-3 w-100" src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=900&q=80" alt="Laundry service">
-                        <h4 class="mb-2">LaundryCity</h4>
-                        <p class="flex-grow-1">Laundry management app with scheduling and service tracking.</p>
-                        <a class="btn btn-primary mt-3" href="https://laundry-management-system-react-js.vercel.app/" target="_blank" rel="noopener">Live Site</a>
+                        <img class="rounded-3 mb-3 w-100" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" alt="Food delivery app interface preview">
+                        <h4 class="mb-2">Food Delivery Website</h4>
+                        <p class="flex-grow-1">Food ordering platform with category navigation, smooth ordering flow, and mobile-friendly interface.</p>
+                        <a class="btn btn-primary mt-3" href="https://a-u-a-hotel-app.vercel.app" target="_blank" rel="noopener">Live Site</a>
                     </div>
                 </div>
             </div>
@@ -1729,21 +1770,26 @@
                         <h3 class="mb-4">Send Message</h3>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
+                                <label for="contactName" class="visually-hidden">Your Name</label>
+                                <input id="contactName" name="name" type="text" class="form-control" placeholder="Your Name" autocomplete="name" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
+                                <label for="contactEmail" class="visually-hidden">Your Email</label>
+                                <input id="contactEmail" name="email" type="email" class="form-control" placeholder="Your Email" autocomplete="email" required>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Subject" required>
+                            <label for="contactSubject" class="visually-hidden">Subject</label>
+                            <input id="contactSubject" name="subject" type="text" class="form-control" placeholder="Subject" autocomplete="off" required>
                         </div>
                         <div class="mb-4">
-                            <textarea class="form-control" rows="6" placeholder="Your Message" required></textarea>
+                            <label for="contactMessage" class="visually-hidden">Your Message</label>
+                            <textarea id="contactMessage" name="message" class="form-control" rows="6" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn-submit">
                             <i class="fas fa-paper-plane me-2"></i>Send Message
                         </button>
+                        <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
                     </form>
                 </div>
             </div>
