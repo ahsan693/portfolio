@@ -122,31 +122,44 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             const inputs = this.querySelectorAll('input, textarea');
+            const feedback = this.querySelector('#formFeedback');
             let isValid = true;
             
             inputs.forEach(input => {
                 if (!input.value.trim()) {
                     isValid = false;
-                    input.style.borderColor = '#ff6b6b';
+                    input.classList.add('is-invalid');
                 } else {
-                    input.style.borderColor = '';
+                    input.classList.remove('is-invalid');
+                    input.classList.add('is-valid');
                 }
             });
             
             if (!isValid) {
-                alert('Please fill in all fields');
+                if (feedback) {
+                    feedback.textContent = 'Please complete all required fields before sending.';
+                }
                 return;
             }
             
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>Message Sent!';
-            submitBtn.style.background = '#28a745';
+            if (feedback) {
+                feedback.textContent = 'Thanks! Your message has been recorded successfully.';
+            }
             
             setTimeout(() => {
                 this.reset();
+                inputs.forEach(input => {
+                    input.classList.remove('is-invalid', 'is-valid');
+                });
                 submitBtn.innerHTML = originalText;
-                submitBtn.style.background = '';
+                submitBtn.disabled = false;
+                if (feedback) {
+                    feedback.textContent = '';
+                }
             }, 3000);
         });
     }
