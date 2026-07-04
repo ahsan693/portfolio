@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.body.classList.add('loaded');
 
     const menuBtn = document.getElementById('menuBtn');
@@ -39,25 +40,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(section => navObserver.observe(section));
 
-    const revealSections = document.querySelectorAll('.section:not(.revealed)');
+    const revealItems = document.querySelectorAll('.section, .project-card, .skill-group, .about-card, .resume-wrap, .contact-wrap');
     const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (!entry.isIntersecting) return;
-            entry.target.classList.add('revealed');
+            window.setTimeout(() => {
+                entry.target.classList.add('is-visible');
+            }, reduceMotion ? 0 : index * 60);
             observer.unobserve(entry.target);
         });
     }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -40px 0px'
+        threshold: 0.12,
+        rootMargin: '0px 0px -30px 0px'
     });
 
-    revealSections.forEach(section => revealObserver.observe(section));
+    revealItems.forEach(item => revealObserver.observe(item));
 
     const toTop = document.getElementById('toTop');
     if (toTop) {
         window.addEventListener('scroll', () => {
             toTop.classList.toggle('show', window.scrollY > 500);
         });
+    }
+
+    const loader = document.querySelector('.page-loader');
+    if (loader) {
+        window.setTimeout(() => {
+            loader.classList.add('is-hidden');
+        }, reduceMotion ? 120 : 700);
     }
 
     const words = [
@@ -89,11 +99,64 @@ document.addEventListener('DOMContentLoaded', () => {
                 delay = 320;
             }
 
-            setTimeout(tick, delay);
+            window.setTimeout(tick, delay);
         };
 
         tick();
     }
+
+    const orbitShell = document.querySelector('.orbit-shell');
+    if (orbitShell && !reduceMotion) {
+        orbitShell.addEventListener('pointermove', (event) => {
+            const rect = orbitShell.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+            orbitShell.style.transform = `perspective(1000px) rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 8).toFixed(2)}deg)`;
+        });
+
+        orbitShell.addEventListener('pointerleave', () => {
+            orbitShell.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        });
+    }
+
+    const cards = document.querySelectorAll('.project-card');
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorRing = document.querySelector('.cursor-ring');
+
+    if (!reduceMotion && cursorDot && cursorRing) {
+        const moveCursor = (event) => {
+            cursorDot.style.left = `${event.clientX}px`;
+            cursorDot.style.top = `${event.clientY}px`;
+            cursorRing.style.left = `${event.clientX}px`;
+            cursorRing.style.top = `${event.clientY}px`;
+        };
+
+        window.addEventListener('mousemove', moveCursor);
+
+        document.querySelectorAll('a, button, .project-card, .tech, .icon-btn').forEach(element => {
+            element.addEventListener('mouseenter', () => cursorRing.classList.add('is-hovered'));
+            element.addEventListener('mouseleave', () => cursorRing.classList.remove('is-hovered'));
+        });
+    }
+
+    cards.forEach(card => {
+        if (reduceMotion) return;
+
+        card.addEventListener('pointermove', (event) => {
+            const rect = card.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+            card.style.setProperty('--rx', `${(-y * 8).toFixed(2)}deg`);
+            card.style.setProperty('--ry', `${(x * 8).toFixed(2)}deg`);
+            card.classList.add('is-tilting');
+        });
+
+        card.addEventListener('pointerleave', () => {
+            card.classList.remove('is-tilting');
+            card.style.setProperty('--rx', '0deg');
+            card.style.setProperty('--ry', '0deg');
+        });
+    });
 
     const contactForm = document.getElementById('contactForm');
     const feedback = document.getElementById('formFeedback');
