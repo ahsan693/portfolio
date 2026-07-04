@@ -105,28 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
         tick();
     }
 
-    const orbitShell = document.querySelector('.orbit-shell');
-    if (orbitShell && !reduceMotion) {
-        orbitShell.addEventListener('pointermove', (event) => {
-            const rect = orbitShell.getBoundingClientRect();
-            const x = (event.clientX - rect.left) / rect.width - 0.5;
-            const y = (event.clientY - rect.top) / rect.height - 0.5;
-            orbitShell.style.transform = `perspective(1000px) rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 8).toFixed(2)}deg)`;
-        });
-
-        orbitShell.addEventListener('pointerleave', () => {
-            orbitShell.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-        });
-    }
-
     const cards = document.querySelectorAll('.project-card');
-    const cursorDot = document.querySelector('.cursor-dot');
     const cursorRing = document.querySelector('.cursor-ring');
 
-    if (!reduceMotion && cursorDot && cursorRing) {
+    if (!reduceMotion && cursorRing) {
         const moveCursor = (event) => {
-            cursorDot.style.left = `${event.clientX}px`;
-            cursorDot.style.top = `${event.clientY}px`;
             cursorRing.style.left = `${event.clientX}px`;
             cursorRing.style.top = `${event.clientY}px`;
         };
@@ -146,15 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const rect = card.getBoundingClientRect();
             const x = (event.clientX - rect.left) / rect.width - 0.5;
             const y = (event.clientY - rect.top) / rect.height - 0.5;
-            card.style.setProperty('--rx', `${(-y * 8).toFixed(2)}deg`);
-            card.style.setProperty('--ry', `${(x * 8).toFixed(2)}deg`);
-            card.classList.add('is-tilting');
-        });
-
-        card.addEventListener('pointerleave', () => {
-            card.classList.remove('is-tilting');
-            card.style.setProperty('--rx', '0deg');
-            card.style.setProperty('--ry', '0deg');
+            card.style.setProperty('--rx', `${(-y * 4).toFixed(2)}deg`);
+            card.style.setProperty('--ry', `${(x * 4).toFixed(2)}deg`);
         });
     });
 
@@ -169,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             fields.forEach(field => {
                 const hasValue = field.value.trim() !== '';
-                field.style.borderColor = hasValue ? 'rgba(255, 255, 255, 0.1)' : '#ff6a6a';
+                field.style.borderColor = hasValue ? 'var(--line-dim)' : '#e07a5f';
                 if (!hasValue) valid = false;
             });
 

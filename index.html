@@ -21,15 +21,18 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="page-loader"><div class="page-loader__ring"></div></div>
+    <div class="cursor-ring"></div>
+
     <a href="#main" class="skip-link">Skip to content</a>
 
     <header class="header" id="top">
         <div class="container nav-wrap">
-            <a class="brand" href="#top">Ahsan<span>.dev</span></a>
+            <a class="brand" href="#top">AHSAN<span>.DEV</span></a>
 
             <nav aria-label="Primary navigation">
                 <ul class="nav-links" id="desktopNav">
@@ -57,10 +60,9 @@
 
     <main id="main">
         <section class="hero section revealed" id="home">
-            <div class="mesh" aria-hidden="true"></div>
             <div class="container hero-shell">
                 <div class="hero-copy">
-                    <span class="hire-badge"><span class="dot" aria-hidden="true"></span>Available for hire</span>
+                    <span class="fig-label"><span class="dot" aria-hidden="true"></span>FIG. 01 — AVAILABLE FOR HIRE</span>
                     <h1>I build fast, clean web apps that actually ship.</h1>
                     <p class="hero-sub">MERN Stack Developer · Open for Freelance · Based in Islamabad</p>
                     <p class="typewriter"><span id="typewriterText" class="code-font"></span></p>
@@ -70,18 +72,22 @@
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="orbit-shell">
-                        <div class="orbit-ring" aria-hidden="true">
-                            <div class="orbit-item orbit-item--0"><span>⚛</span></div>
-                            <div class="orbit-item orbit-item--45"><span>▲</span></div>
-                            <div class="orbit-item orbit-item--90"><span>🟢</span></div>
-                            <div class="orbit-item orbit-item--135"><span>🍃</span></div>
-                            <div class="orbit-item orbit-item--180"><span>⚡</span></div>
-                            <div class="orbit-item orbit-item--225"><span>☁</span></div>
-                            <div class="orbit-item orbit-item--270"><span>🔀</span></div>
-                            <div class="orbit-item orbit-item--315"><span>🧠</span></div>
+                    <div class="schematic">
+                        <div class="reg-tr" aria-hidden="true"></div>
+                        <div class="reg-bl" aria-hidden="true"></div>
+                        <div class="schematic-head">
+                            <span>SCHEMATIC — DEVELOPER STACK</span>
+                            <span>SCALE 1:1</span>
                         </div>
-                        <div class="orbit-core">MERN</div>
+                        <div class="schematic-row"><span class="lbl">Frontend</span><span class="val">React / Next.js</span></div>
+                        <div class="schematic-row"><span class="lbl">Backend</span><span class="val">Node.js / Express</span></div>
+                        <div class="schematic-row"><span class="lbl">Database</span><span class="val">MongoDB</span></div>
+                        <div class="schematic-row"><span class="lbl">Language</span><span class="val">TypeScript</span></div>
+                        <div class="schematic-row"><span class="lbl">Deploy</span><span class="val">Vercel</span></div>
+                        <div class="schematic-foot">
+                            <span>DRAWN BY: A. ABBAS</span>
+                            <span>REV. 2026</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -97,7 +103,7 @@
         </div>
 
         <div class="marquee" aria-hidden="true">
-            <div class="marquee-track marquee-track-reverse marquee-skew">
+            <div class="marquee-track marquee-track-reverse">
                 <span class="marquee-pill"><strong>Focus</strong> Freelance Development · UI Engineering · Fast APIs · Product UX</span>
                 <span class="marquee-pill"><strong>Focus</strong> Freelance Development · UI Engineering · Fast APIs · Product UX</span>
                 <span class="marquee-pill"><strong>Focus</strong> Freelance Development · UI Engineering · Fast APIs · Product UX</span>
@@ -108,21 +114,23 @@
         <section class="section" id="projects">
             <div class="container">
                 <div class="section-title">
+                    <span class="tag">§ 01</span>
                     <h2>Work</h2>
-                    <p>Real shipped projects with clear problem-solution outcomes.</p>
+                    <div class="rule" aria-hidden="true"></div>
                 </div>
+                <p class="text-muted" style="margin:-24px 0 32px;">Real shipped projects with clear problem-solution outcomes.</p>
 
                 <div class="project-grid">
                     <article class="project-card">
+                        <span class="fig-number">FIG. 01</span>
                         <span class="featured">Featured</span>
                         <div class="browser">
-                            <div class="browser-top"><i></i><i></i><i></i></div>
                             <img loading="lazy" src="images/dropline.PNG" alt="Digital marketing agency website">
                         </div>
                         <div class="project-content">
                             <h3>Dropline Media</h3>
-                            <p>Problem: Agencies need trust-building storytelling with motion-led service highlights.</p>
-                            <p>Built: A digital marketing site with video carousel, animation, and Sanity CMS.</p>
+                            <p><strong>Problem</strong> Agencies need trust-building storytelling with motion-led service highlights.</p>
+                            <p><strong>Built</strong> A digital marketing site with video carousel, animation, and Sanity CMS.</p>
                             <div class="stack"><span>Next.js</span><span>Sanity.io</span><span>React</span><span>Animation</span></div>
                             <div class="project-actions">
                                 <a class="btn btn-primary" href="https://dropline-media-fsj6.vercel.app/" target="_blank" rel="noopener noreferrer">Live Site →</a>
@@ -132,15 +140,15 @@
                     </article>
 
                     <article class="project-card">
+                        <span class="fig-number">FIG. 02</span>
                         <span class="featured">Featured</span>
                         <div class="browser">
-                            <div class="browser-top"><i></i><i></i><i></i></div>
                             <img loading="lazy" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80" alt="Fashion shopping website">
                         </div>
                         <div class="project-content">
                             <h3>LuxeWear Clothing</h3>
-                            <p>Problem: Fashion brands need high-conversion product presentation.</p>
-                            <p>Built: A modern storefront with clean product flow and responsive UX.</p>
+                            <p><strong>Problem</strong> Fashion brands need high-conversion product presentation.</p>
+                            <p><strong>Built</strong> A modern storefront with clean product flow and responsive UX.</p>
                             <div class="stack"><span>React</span><span>Node.js</span><span>MongoDB</span><span>CSS</span></div>
                             <div class="project-actions">
                                 <a class="btn btn-primary" href="https://luxewear-rose.vercel.app/" target="_blank" rel="noopener noreferrer">Live Site →</a>
@@ -150,14 +158,14 @@
                     </article>
 
                     <article class="project-card">
+                        <span class="fig-number">FIG. 03</span>
                         <div class="browser">
-                            <div class="browser-top"><i></i><i></i><i></i></div>
                             <img loading="lazy" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80" alt="Restaurant website">
                         </div>
                         <div class="project-content">
                             <h3>Monal Restaurant</h3>
-                            <p>Problem: Restaurant websites often fail to guide visitors to booking.</p>
-                            <p>Built: A clear menu-first experience with booking-oriented layout.</p>
+                            <p><strong>Problem</strong> Restaurant websites often fail to guide visitors to booking.</p>
+                            <p><strong>Built</strong> A clear menu-first experience with booking-oriented layout.</p>
                             <div class="stack"><span>React</span><span>JavaScript</span><span>CSS</span></div>
                             <div class="project-actions">
                                 <a class="btn btn-primary" href="https://resturant-five-kappa.vercel.app/" target="_blank" rel="noopener noreferrer">Live Site →</a>
@@ -167,14 +175,14 @@
                     </article>
 
                     <article class="project-card">
+                        <span class="fig-number">FIG. 04</span>
                         <div class="browser">
-                            <div class="browser-top"><i></i><i></i><i></i></div>
                             <img loading="lazy" src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=1200&q=80" alt="Laundry service app">
                         </div>
                         <div class="project-content">
                             <h3>LaundryCity</h3>
-                            <p>Problem: Service businesses need transparent order tracking for users.</p>
-                            <p>Built: A workflow app for scheduling, status updates, and service flow.</p>
+                            <p><strong>Problem</strong> Service businesses need transparent order tracking for users.</p>
+                            <p><strong>Built</strong> A workflow app for scheduling, status updates, and service flow.</p>
                             <div class="stack"><span>React</span><span>Node.js</span><span>MongoDB</span><span>REST API</span></div>
                             <div class="project-actions">
                                 <a class="btn btn-primary" href="https://laundry-management-system-react-js.vercel.app/" target="_blank" rel="noopener noreferrer">Live Site →</a>
@@ -184,15 +192,15 @@
                     </article>
 
                     <article class="project-card">
+                        <span class="fig-number">FIG. 05</span>
                         <span class="featured">Featured</span>
                         <div class="browser">
-                            <div class="browser-top"><i></i><i></i><i></i></div>
                             <img loading="lazy" src="images/indus%20motors.PNG" alt="Used car selling platform">
                         </div>
                         <div class="project-content">
                             <h3>Indus Motors</h3>
-                            <p>Problem: Used car buyers need a reliable marketplace with verified listings.</p>
-                            <p>Built: A comprehensive car selling platform with detailed specs, images, and easy browsing.</p>
+                            <p><strong>Problem</strong> Used car buyers need a reliable marketplace with verified listings.</p>
+                            <p><strong>Built</strong> A comprehensive car selling platform with detailed specs, images, and easy browsing.</p>
                             <div class="stack"><span>React</span><span>Node.js</span><span>MongoDB</span><span>Express</span></div>
                             <div class="project-actions">
                                 <a class="btn btn-primary" href="https://indus-motor-group.vercel.app/" target="_blank" rel="noopener noreferrer">Live Site →</a>
@@ -202,14 +210,14 @@
                     </article>
 
                     <article class="project-card">
+                        <span class="fig-number">FIG. 06</span>
                         <div class="browser">
-                            <div class="browser-top"><i></i><i></i><i></i></div>
                             <img loading="lazy" src="images/irish%20calculator.PNG" alt="Income calculator tool">
                         </div>
                         <div class="project-content">
                             <h3>Irish Net Income Calculator</h3>
-                            <p>Problem: Employees need an accurate way to calculate net income from gross salary.</p>
-                            <p>Built: A real-time calculator with tax breakdowns and deductions for Irish wages.</p>
+                            <p><strong>Problem</strong> Employees need an accurate way to calculate net income from gross salary.</p>
+                            <p><strong>Built</strong> A real-time calculator with tax breakdowns and deductions for Irish wages.</p>
                             <div class="stack"><span>React</span><span>JavaScript</span><span>CSS</span></div>
                             <div class="project-actions">
                                 <a class="btn btn-primary" href="https://irish-net-salary-calculator.vercel.app/" target="_blank" rel="noopener noreferrer">Live Site →</a>
@@ -224,9 +232,11 @@
         <section class="section" id="skills">
             <div class="container">
                 <div class="section-title">
+                    <span class="tag">§ 02</span>
                     <h2>Skills</h2>
-                    <p>Production-focused tools I use to design, build, and deploy web apps.</p>
+                    <div class="rule" aria-hidden="true"></div>
                 </div>
+                <p class="text-muted" style="margin:-24px 0 32px;">Production-focused tools I use to design, build, and deploy web apps.</p>
 
                 <div class="skills-grid">
                     <article class="skill-group">
@@ -253,7 +263,7 @@
                     </article>
 
                     <article class="skill-group">
-                        <h3>Tools & DevOps</h3>
+                        <h3>Tools &amp; DevOps</h3>
                         <div class="tech-list">
                             <div class="tech"><span>🔀</span><span>Git</span></div>
                             <div class="tech"><span>🐳</span><span>Docker</span></div>
@@ -271,9 +281,11 @@
         <section class="section" id="resume">
             <div class="container">
                 <div class="section-title">
+                    <span class="tag">§ 03</span>
                     <h2>Resume</h2>
-                    <p>Education and certifications that support real-world product work.</p>
+                    <div class="rule" aria-hidden="true"></div>
                 </div>
+                <p class="text-muted" style="margin:-24px 0 32px;">Education and certifications that support real-world product work.</p>
 
                 <div class="resume-wrap">
                     <div class="timeline">
@@ -293,9 +305,11 @@
         <section class="section" id="about">
             <div class="container">
                 <div class="section-title">
+                    <span class="tag">§ 04</span>
                     <h2>About</h2>
-                    <p>Focused on shipping clean products with measurable outcomes.</p>
+                    <div class="rule" aria-hidden="true"></div>
                 </div>
+                <p class="text-muted" style="margin:-24px 0 32px;">Focused on shipping clean products with measurable outcomes.</p>
 
                 <div class="about-card">
                     <p>
@@ -323,9 +337,11 @@
         <section class="section" id="contact">
             <div class="container">
                 <div class="section-title">
+                    <span class="tag">§ 05</span>
                     <h2>Contact</h2>
-                    <p>Currently taking freelance projects — typical response within 24h.</p>
+                    <div class="rule" aria-hidden="true"></div>
                 </div>
+                <p class="text-muted" style="margin:-24px 0 32px;">Currently taking freelance projects — typical response within 24h.</p>
 
                 <div class="contact-wrap">
                     <div class="contact-grid">
@@ -360,7 +376,7 @@
 
     <footer class="footer">
         <div class="container footer-wrap">
-            <p>Designed & built by Ahsan Abbas · 2025</p>
+            <p>Designed &amp; built by Ahsan Abbas · 2026</p>
             <div class="social-row">
                 <a class="icon-btn" aria-label="GitHub" href="https://github.com/ahsan-abbas-dev" target="_blank" rel="noopener noreferrer">GH</a>
                 <a class="icon-btn" aria-label="LinkedIn" href="https://linkedin.com/in/ahsan-abbas-dev" target="_blank" rel="noopener noreferrer">IN</a>
